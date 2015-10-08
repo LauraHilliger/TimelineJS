@@ -14,7 +14,6 @@ import traceback
 import sys
 import os
 
-#if __name__ == "__main__":
 # Add current directory to sys.path
 site_dir = os.path.dirname(os.path.abspath(__file__))
          
@@ -40,6 +39,7 @@ settings = sys.modules[settings_module]
 
 app = Flask(__name__)
 
+compiled_dir = os.path.join(settings.PROJECT_ROOT, 'compiled')
 build_dir = os.path.join(settings.PROJECT_ROOT, 'build')
 source_dir = os.path.join(settings.PROJECT_ROOT, 'source')
 
@@ -55,6 +55,12 @@ def inject_static_url():
         static_url = static_url.rstrip('/')
     return dict(static_url=static_url, STATIC_URL=static_url)
 
+@app.route('/compiled/<path:path>')
+def catch_compiled(path):
+    """
+    Serve /compiled/... urls from the compiled directory
+    """
+    return send_from_directory(compiled_dir, path)    
 
 @app.route('/build/<path:path>')
 def catch_build(path):
@@ -70,13 +76,11 @@ def catch_source(path):
     """
     return send_from_directory(source_dir, path)    
 
-    
-   
 @app.route('/')
 @app.route('/<path:path>')
 def catch_all(path='index.html', context=None):
     """Catch-all function which serves every URL."""
-    context = context or {}
+    context = context or {}      
     if not os.path.splitext(path)[1]:
         path = os.path.join(path, 'index.html')
     return render_template(path, **context)
@@ -101,5 +105,5 @@ if __name__ == "__main__":
     except getopt.GetoptError:
         print 'Usage: app.py [-s] [-p port]'
         sys.exit(1)
-       
-    app.run(host='0.0.0.0', port=5000, debug=True, ssl_context=ssl_context)
+        
+    app.run(host='0.0.0.0', port=port, debug=True, ssl_context=ssl_context)

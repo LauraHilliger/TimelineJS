@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.DS_Store
 .DS_Store*
 dev_examples/
@@ -12,3 +13,13 @@ source/gfx/Sprites/
 codekit-config.json
 build
 
+=======
+*.pyc
+
+# Other
+.DS_Store
+codekit-config.json
+
+build/website
+build
+>>>>>>> FETCH_HEAD

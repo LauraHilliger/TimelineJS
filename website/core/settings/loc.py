@@ -3,12 +3,14 @@ import sys
 from os.path import normpath, join
 from .base import *
 
-# Import secrets -- not needed
+# Import secrets (no project-specific secrets)
 #sys.path.append(
-#    abspath(join(PROJECT_ROOT, '../secrets/TimelineJS/stg'))
+#    abspath(join(PROJECT_ROOT, '../secrets/storymapjs/stg'))
 #)
-
-#from secrets import *
+#try:
+#    from secrets import *
+#except ImportError, e:
+#    print 'WARNING: Could not import project secrets (%s).  You will not be able to deploy.' % (e)
 
 # Set static URL
 STATIC_URL = '/static'
