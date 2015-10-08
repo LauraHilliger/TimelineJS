@@ -18,7 +18,7 @@ if(typeof VMM != 'undefined') {
 			month: "mmmm yyyy",
 			full_short: "d mmm",
 			full: "d mmmm yyyy",
-			time_short: "HH:MM:SS",
+			time_short: "HH:MM:ss",
 			time_no_seconds_short: "HH:MM",
 			time_no_seconds_small_date: "'<small>'d mmmm yyyy'</small>' HH:MM",
 			full_long: "dddd',' d mmm yyyy HH:MM",
@@ -31,7 +31,7 @@ if(typeof VMM != 'undefined') {
 			contract_timeline: "Reduir la cronologia",
 			wikipedia: "Des de Wikipedia, l'enciclopèdia lliure",
 			loading_content: "Carregant contingut",
-			loading: "Carregant"
-		}
+			loading: "Carregant",
+			swipe_nav: "Swipe to Navigate"		}
 	}
 }

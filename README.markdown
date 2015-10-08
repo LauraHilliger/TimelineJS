@@ -1,3 +1,15 @@
+# This Version of Timeline is no longer under development
+
+Knight Lab has created a new version at https://github.com/NUKnightLab/TimelineJS3 . The new library should work with existing Google Spreadsheets, but not existing TimelineJS JSON files. Knight Lab will continue to serve this version of Timeline from
+
+* https://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js
+* https://cdn.knightlab.com/libs/timeline/latest/js/timeline.js
+* https://cdn.knightlab.com/libs/timeline/latest/css/timeline.css
+
+However, no future development on this line of code is planned.
+
+----
+
 **Table of Contents**
 
 - [TimelineJS](#timelinejs)
@@ -5,6 +17,7 @@
 	- [Add it to your site](#add-it-to-your-site)
 		- [Using Inline (easiest)](#using-inline-easiest)
 		- [Using a method (advanced)](#using-a-method-advanced)
+		- [Loading the files](#loading-the-files)
 	- [Config Options](#config-options)
 		- [Language](#language)
 		- [Start at End](#start-at-end)
@@ -23,8 +36,8 @@
 	- [Media](#media)
 	- [Best practices](#best-practices)
 	- [License](#license)
-	
-# TimelineJS 
+
+# TimelineJS
 ## Document history with TimelineJS
 
 There are lots of timeline tools on the web but they are almost all either
@@ -38,8 +51,9 @@ in the future.
 
 Creating one is as easy as filling in a Google spreadsheet or as detailed as
 JSON.
- 
+
 ## Add it to your site
+
 ### Using Inline (*easiest*)
 Place the embed code where you want the timeline to show in the `<body>` of your site. See [Config Options](#config-options) for a full list of what you can set in the config.
 
@@ -63,7 +77,7 @@ Place the embed code where you want the timeline to show in the `<body>` of your
 			js:					'path_to_js/timeline-min.js'	//OPTIONAL PATH TO JS
 		}
 	</script>
-	<script type="text/javascript" src="path_to_js/storyjs-embed.js"></script>
+	<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
 ```
 ### Using a method (*advanced*)
 You could also initialize a new timeline using the `createStoryJS` method after `storyjs-embed.js` has been loaded
@@ -84,7 +98,7 @@ Here's a simple example:
 		<!-- jQuery -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<!-- BEGIN TimelineJS -->
-		<script type="text/javascript" src="path_to_js/storyjs-embed.js"></script>
+		<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
 		<script>
 			$(document).ready(function() {
 				createStoryJS({
@@ -98,12 +112,28 @@ Here's a simple example:
 		</script>
 		<!-- END TimelineJS -->
 	</head>
-	<body>	
+	<body>
 		<div id="my-timeline"></div>
 	</body>
 ```
 
-	
+### Loading the files
+If you like, you may load TimelineJS from the KnightLab's CDN. The examples above demonstrate how to do this using `story-embed.js`, which is the simplest way to set up a Timeline of your own.
+
+If for some reason you need more fine-grained control over your timeline, load the javascript and CSS files separately. We recommend that you load them from our CDN.
+
+```html
+<!-- always load the CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
+<!-- and then one of either -->
+<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/timeline.js"></script>
+<!-- or -->
+<script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js"></script>
+<!-- but no need for both -->
+```
+
+If you need to serve copies of the files from your own server, use the entire contents of the ["/build/" directory](https://github.com/NUKnightLab/TimelineJS/tree/master/build) of our GitHub repository. If you use a local copy of `story-embed.js` it should automatically load the other Timeline resources from your server.
+
 ## Config Options
 Here are some of the options you can set in the config.
 
@@ -136,77 +166,97 @@ Localization
 *default is `en` English*
 Languages available:
 * `af` *Afrikaans*
-* `ar` *Arabic (beta)*
+* `ar` *Arabic*
+* `hy` *Armenian*
+* `eu` *Basque*
+* `be` *Belarusian*
 * `bg` *Bulgarian*
 * `ca` *Catalan*
+* `zh-cn` *Chinese*
+* `hr` *Croatian / Hrvatski*
 * `cz` *Czech*
 * `da` *Danish*
+* `nl` *Dutch*
+* `en` *English*
+* `en-24hr` *English (24-hour time)*
+* `eo` *Esperanto*
+* `et` *Estonian*
+* `fo` *Faroese*
+* `fa` *Farsi*
+* `fi` *Finnish*
+* `fr` *French*
+* `fy` *Frisian*
+* `gl` *Galician*
+* `ka` *Georgian*
 * `de` *German / Deutsch*
 * `el` *Greek*
-* `en` *English*
-* `es` *Spanish*
-* `eu` *Basque/ Euskara*
-* `fi` *Finnish*
-* `fo` *Faroese*
-* `fr` *French*
-* `gl` *Galician*
+* `he` *Hebrew*
+* `hi` *Hindi*
 * `hu` *Hungarian*
-* `hy` *Armenian*
-* `id` *Indonesian*
 * `is` *Icelandic*
+* `id` *Indonesian*
+* `ga` *Irish*
 * `it` *Italian*
-* `iw` *Hebrew (beta)*
 * `ja` *Japanese*
-* `ka` *Georgian*
 * `ko` *Korean*
 * `lv` *Latvian*
-* `nl` *Dutch*
+* `lt` *Lithuanian*
+* `lb` *Luxembourgish*
+* `ms` *Malay*
+* `ne` *Nepali*
 * `no` *Norwegian*
 * `pl` *Polish*
-* `pt-br` *Brazilian Portuguese*
 * `pt` *Portuguese*
+* `pt-br` *Portuguese (Brazilian)*
+* `ro` *Romanian*
+* `rm` *Romansh*
 * `ru` *Russian*
+* `sr-cy` *Serbian - Cyrillic*
+* `sr` *Serbian - Latin*
+* `si` *Sinhalese*
 * `sk` *Slovak*
 * `sl` *Slovenian*
-* `sr-cy` *Serbian (Cyrillic)*
-* `sr` *Serbian (Latin)*
+* `es` *Spanish*
 * `sv` *Swedish*
-* `ta` *Tamil*
 * `tl` *Tagalog*
-* `tr` *Turkish*
-* `zh-cn` *Chinese*
+* `ta` *Tamil*
 * `zh-tw` *Taiwanese*
+* `te` *Telugu*
+* `th` *Thai*
+* `tr` *Turkish*
+* `uk` *Ukrainian*
 
 
-Help us add more. Grab a copy of a language file and replace it with your language [Example language file](https://github.com/VeriteCo/StoryJS-Core/blob/master/Language/locale/en.js) and find your language's [two letter code here](http://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1)
 
-###Start at End 
+Help us add more. Grab a copy of a language file and replace it with your language [Example language file](https://github.com/NUKnightLab/TimelineJS/blob/master/source/js/Core/Language/locale/en.js) and find your language's [two letter code here](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+
+###Start at End
 `start_at_end`
 set to true to start the timeline on the last date.
 *default is false*
 
-###Start at Slide 
+###Start at Slide
 `start_at_slide`
 You can tell TimelineJS to start at a specific slide number
 *default is 0*
 
 ###Start Zoom Adjust
 `start_zoom_adjust`
-This will tweak the default zoom level. Equivilent to pressing the zoom in or zoom out button the specified number of times. Negative numbers zoom out.
+This will tweak the default zoom level. Equivalent to pressing the zoom in or zoom out button the specified number of times. Negative numbers zoom out.
 *default is 0*
 
-###Hash Bookmark 
+###Hash Bookmark
 `hash_bookmark`
 set to true to allow bookmarking slides using the hash tag
 *default is false*
 
-###Debug 
+###Debug
 `debug`
 Will log events etc to the console.
 *default is false*
 
 
-###Map Style Types 
+###Map Style Types
 Due to recent changes to the Google Maps API, you need a [API Key](https://developers.google.com/places/documentation/#Authentication) in order to use custom map types.
 `gmap_key:`
 *required in order to use maptype*
@@ -218,33 +268,39 @@ Due to recent changes to the Google Maps API, you need a [API Key](https://devel
 	* `toner-labels`
 	* `watercolor`
 	* `sterrain`
-		
+
 * Google Maps
 	* `ROADMAP`
 	* `TERRAIN`
 	* `HYBRID`
 	* `SATELLITE`
 
-###Font Options 
+* OpenStreetMap
+	- `osm`
+
+###Font Options
 `font:`
-* `Arvo-PTSans`
-* `Merriweather-NewsCycle`
-* `PoiretOne-Molengo`
-* `PTSerif-PTSans`
-* `DroidSerif-DroidSans`
-* `Lekton-Molengo`
-* `NixieOne-Ledger`
-* `AbrilFatface-Average`
-* `PlayfairDisplay-Muli`
-* `Rancho-Gudea`
-* `Bevan-PotanoSans`
-* `BreeSerif-OpenSans`
-* `SansitaOne-Kameron`
-* `Pacifico-Arimo`
+* `AbrilFatface-Average` *Abril Fatface & Average*
+* `Arvo-PTSans` *Arvo & PT Sans*
+* `Bevan-PotanoSans` *Bevan & Potano Sans*
+* `BreeSerif-OpenSans` *Bree Serif & Open Sans*
+* `DroidSerif-DroidSans` *Droid Serif & Droid Sans*
+* `Georgia-Helvetica` *Georgia & Helvetica Neue*
+* `Lekton-Molengo` *Lekton & Molengo*
+* `Merriweather-NewsCycle` *Merriweather & News Cycle*
+* `NewsCycle-Merriweather` *News Cycle & Merriweather*
+* `NixieOne-Ledger` *Nixie One & Ledger*
+* `Pacifico-Arimo` *Pacifico & Arimo*
+* `PlayfairDisplay-Muli` *Playfair Display & Muli*
+* `PoiretOne-Molengo` *Poiret One & Molengo*
+* `PTSerif-PTSans` *PT Serif & PT Sans*
+* `PT` *PT Sans & PT Narrow & PT Serif*
+* `Rancho-Gudea` *Rancho & Gudea*
+* `SansitaOne-Kameron` *Sansita One & Kameron*
 * Or make your own
 
 ####Font Combination Preview:
-![Font Combination Preview](http://timeline.verite.co/gfx/font-options.png)
+![Font Combination Preview](http://timeline.knightlab.com/static/img/make/font-options.png)
 
 ## File Formats
 
@@ -253,7 +309,7 @@ Due to recent changes to the Google Maps API, you need a [API Key](https://devel
 JSON is the native data format for TimelineJS.
 
 Remember, JSON is picky. A misplaced comma or quotation mark can
-prevent the timeline from loading properly. 
+prevent the timeline from loading properly.
 
 Here is the full model:
 ```javascript
@@ -271,8 +327,8 @@ Here is the full model:
 		},
 		"date": [
 			{
-				"startDate":"2011,12,10",
-				"endDate":"2011,12,11",
+				"startDate":"2011,12,10,07,02,10",
+				"endDate":"2011,12,11,08,11",
 				"headline":"Headline Goes Here",
 				"text":"<p>Body text goes here, some HTML is OK</p>",
 				"tag":"This is Optional",
@@ -293,7 +349,7 @@ Here is the full model:
 				"text":"<p>Body text goes here, some HTML is OK</p>",
 				"tag":"This is Optional"
 			}
-			
+
 		]
 	}
 }
@@ -341,18 +397,9 @@ storyjs_jsonp_data = {
 				"headline":"Headline Goes Here",
 				"tag":"This is Optional"
 			}
-			
-		],
-		"chart": [
-			{
-				"startDate":"2011,12,10",
-				"endDate":"2011,12,11",
-				"headline":"Headline Goes Here",
-				"value":"28"
-			}
-			
+
 		]
-		
+
 	}
 }
 ```
@@ -371,7 +418,7 @@ using Google Docs:
   1. Make the spreadsheet public:   
 	Google Docs are automatically set to private but the spreadsheet must be
 	public.
-	
+
 	Click the blue “Share” button on the top right-hand corner. In the “Share
 	settings” window, you’ll see the private setting of the spreadsheet: click
 	“Change...”. In the Visibility options window, choose “Public on the Web” and
@@ -379,7 +426,7 @@ using Google Docs:
 
   2. Publish to the Web  
 	Under the File menu, select “Publish to the Web.”
-	
+
 	In the next window, check the box next to “Automatically republish when
 	changes are made.” Uncheck all other boxes. Click “start publishing.” This
 	will give you the URL to embed in your HTML file.
@@ -390,10 +437,10 @@ using Google Docs:
 	etc.), then paste it into the timeline’s HTML file (see [Add it to your site](#add-it-to-your-site) )
 
 
-	
+
 ### Storify:
 
-Support for Storify is still in it's early stages. It works though. Just paste a link to the storify story as the source.
+Support for Storify is still in its early stages. It works though. Just paste a link to the storify story as the source.
 
 ## Media
 
@@ -413,10 +460,8 @@ Tips and tricks to best utilize TimelineJS
   2. Pick stories that have a strong chronological narrative. It does not work well for stories that need to jump around in the timeline.
   3. Include events that build up to major occurrences, not just the major events.
   4. Don't overwhelm the user. A timeline with hundreds of events is probably not the best use of the format.
-  
+
 ## License
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-
